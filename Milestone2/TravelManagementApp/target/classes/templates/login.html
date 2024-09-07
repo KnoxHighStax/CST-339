@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}">
+</head>
+<body>
+    <header>
+        <h1>Login Page</h1>
+    </header>
+    <main>
+		<div layout:fragment="content">
+			<form action="/orders.html" th:action="@{doLogin}" th:object="${loginModel}" method="POST">
+				<table>
+					<tr>
+						<td>User Name:</td><td><input type="text" th:field="*{username}" ></td><td><p style="color: red;" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">User Name error</p></td>
+					</tr>
+					<tr>
+						<td>Password:</td><td><input type="password" th:field="*{password}" ></td><td><p style="color: red;" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</p></td>
+					</tr>
+					<tr>
+						<td c
+						olspan="2"><input type="submit" value="Submit"/></td>
+					</tr>
+				</table>
+				<div th:if="${#fields.hasErrors('*')}">List of Errors</div> 
+				<div th:each="err : ${#fields.errors('*')}">
+					<span style="color: red;" th:text="${err}" class="fieldErrors"></span>
+				</div>		
+			</form>
+			</div>
+    </main>
+</body>
+</html>
