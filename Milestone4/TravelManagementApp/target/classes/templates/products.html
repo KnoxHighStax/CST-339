@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - My Website</title>
+</head>
+<body layout:decorate="~{base}">
+    <div layout:fragment="content">
+        <h2>Product Details</h2>
+        <p th:text="${product.name}">Product Name</p>
+        <p th:text="${product.description}">Product Description</p>
+        <p th:text="${product.price}">Product Price</p>
+    </div>
+</body>
+</html>
