@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:8889/travelmanagement
+  main:
+    allow-bean-definition-overriding: true
